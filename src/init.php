@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Blocks Initializer
  *
@@ -9,7 +10,7 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
@@ -27,20 +28,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
-function calculadora_juros_cgb_block_assets() { // phpcs:ignore
+function calculadora_juros_cgb_block_assets()
+{ // phpcs:ignore
 	// Register block styles for both frontend + backend.
 	wp_register_style(
-		'calculadora_juros-cgb-style-css', // Handle.
-		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
-		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
+		'calculadora_dividendos-cgb-style-css', // Handle.
+		plugins_url('dist/blocks.style.build.css', dirname(__FILE__)), // Block style CSS.
+		is_admin() ? array('wp-editor') : null, // Dependency to include the CSS after it.
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
 	);
 
 	// Register block editor script for backend.
 	wp_register_script(
-		'calculadora_juros-cgb-block-js', // Handle.
-		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+		'calculadora_dividendos-cgb-block-js', // Handle.
+		plugins_url('/dist/blocks.build.js', dirname(__FILE__)), // Block.build.js: We register the block here. Built with Webpack.
+		array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'), // Dependencies, defined above.
 		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
 		true // Enqueue the script in the footer.
 	);
@@ -55,11 +57,11 @@ function calculadora_juros_cgb_block_assets() { // phpcs:ignore
 
 	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
 	wp_localize_script(
-		'calculadora_juros-cgb-block-js',
+		'calculadora_dividendos-cgb-block-js',
 		'cgbGlobal', // Array containing dynamic data for a JS Global.
 		[
-			'pluginDirPath' => plugin_dir_path( __DIR__ ),
-			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
+			'pluginDirPath' => plugin_dir_path(__DIR__),
+			'pluginDirUrl'  => plugin_dir_url(__DIR__),
 			// Add more data here that you want to access from `cgbGlobal` object.
 		]
 	);
@@ -75,16 +77,17 @@ function calculadora_juros_cgb_block_assets() { // phpcs:ignore
 	 * @since 1.16.0
 	 */
 	register_block_type(
-		'cgb/block-calculadora-juros', array(
+		'cgb/block-calculadora-dividendos',
+		array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'calculadora_juros-cgb-style-css',
+			'style'         => 'calculadora_dividendos-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'calculadora_juros-cgb-block-js',
+			'editor_script' => 'calculadora_dividendos-cgb-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'calculadora_juros-cgb-block-editor-css',
+			'editor_style'  => 'calculadora_dividendos-cgb-block-editor-css',
 		)
 	);
 }
 
 // Hook: Block assets.
-add_action( 'init', 'calculadora_juros_cgb_block_assets' );
+add_action('init', 'calculadora_dividendos_cgb_block_assets');
