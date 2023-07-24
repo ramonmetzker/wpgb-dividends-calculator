@@ -3,17 +3,17 @@ import "./style.scss";
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
-registerBlockType("cgb/block-calculadora-juros", {
-	title: __("Calculadora de Juros Compostos"),
+registerBlockType("cgb/block-calculadora-dividendos", {
+	title: __("Calculadora de Dividendos"),
 	icon: "calculator",
 	category: "widget",
 	edit: () => {
 		return (
 			<div>
-				<div className="calculadora-juros-wrapper">
-					<h3>Calculadora de Juros Compostos</h3>
+				<div className="calculadora-dividendos-wrapper">
+					<h3>Calculadora de Dividendos</h3>
 				</div>
-				<span className="calculadora-juros-info">
+				<span className="calculadora-dividendos-info">
 					O widget da calculadora será exibido no portal nesta mesma posição no
 					conteúdo.
 				</span>
@@ -21,6 +21,6 @@ registerBlockType("cgb/block-calculadora-juros", {
 		);
 	},
 	save: () => {
-		return <calculadora></calculadora>;
+		return <calculadora-div></calculadora-div>;
 	},
 });
