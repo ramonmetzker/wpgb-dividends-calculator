@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
-function calculadora_juros_cgb_block_assets()
+function calculadora_dividendos_cgb_block_assets()
 { // phpcs:ignore
 	// Register block styles for both frontend + backend.
 	wp_register_style(
@@ -49,7 +49,7 @@ function calculadora_juros_cgb_block_assets()
 
 	// Register block editor styles for backend.
 	// wp_register_style(
-	// 	'calculadora_juros-cgb-block-editor-css', // Handle.
+	// 	'calculadora_dividendos-cgb-block-editor-css', // Handle.
 	// 	plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
 	// 	array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
 	// 	null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
